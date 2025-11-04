@@ -18,14 +18,26 @@ final class Validator
       $errors[] = 'O nome é obrigatório.';
     }
 
-    // Data de nascimento obrigatória e anterior a hoje
-    if (empty($data['birth_date'])) {
+    // ===== Validação da data de nascimento =====
+    $birthDate = $data['birth_date'] ?? '';
+
+    if (empty($birthDate)) {
       $errors[] = 'A data de nascimento é obrigatória.';
-    } elseif (strtotime($data['birth_date']) > time()) {
-      $errors[] = 'A data de nascimento não pode ser no futuro.';
+    } else {
+      // Tenta converter a data
+      $timestamp = strtotime($birthDate);
+
+      if ($timestamp === false) {
+        $errors[] = 'A data de nascimento é inválida.';
+      } else {
+        // Se for uma data no futuro
+        if ($timestamp > time()) {
+          $errors[] = 'A data de nascimento não pode ser no futuro.';
+        }
+      }
     }
 
-    // Telefone: só números, parênteses, hífen e espaço
+    // Telefone: apenas números, (), -, espaço
     if (!empty($data['phone']) && !preg_match('/^[0-9()\-\s]+$/', $data['phone'])) {
       $errors[] = 'O telefone contém caracteres inválidos.';
     }
