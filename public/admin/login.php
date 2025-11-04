@@ -17,6 +17,7 @@ if (($_SERVER['REQUEST_METHOD'] ?? 'GET') === 'POST') {
     $error = 'Usuário ou senha inválidos.';
 }
 ?>
+
 <!doctype html>
 <html lang="pt-br">
 <meta charset="utf-8">
