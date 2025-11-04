@@ -188,19 +188,54 @@ function page_form(string $flash = '', array $old = []): string
     </form>
 
     <script>
-      // Impede letras no telefone
-      document.querySelectorAll('#phone, #cellphone').forEach(function (input) {
-        input.addEventListener('input', function () {
-          this.value = this.value.replace(/[^0-9()\-\s]/g, '');
-        });
-      });
+  // Impede letras no telefone e celular
+  document.querySelectorAll('#phone, #cellphone').forEach(function (input) {
+    input.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9()\-\s]/g, '');
+    });
+  });
 
-      // Impede data de nascimento maior que hoje
-      const birthInput = document.getElementById('birth_date');
-      const today = new Date().toISOString().split('T')[0];
-      birthInput.setAttribute('max', today);
-    </script>
-    
+  // Impede data de nascimento maior que hoje
+  const birthInput = document.getElementById('birth_date');
+  const today = new Date().toISOString().split('T')[0];
+  birthInput.setAttribute('max', today);
+
+  // Validação adicional: impede ano futuro
+  birthInput.addEventListener('change', function () {
+    const value = this.value;
+
+    if (!value) return;
+
+    const selectedDate = new Date(value);
+    const selectedYear = selectedDate.getFullYear();
+    const currentYear = new Date().getFullYear();
+
+    // Se o ano for maior que o atual → mostra erro e limpa o campo
+    if (selectedYear > currentYear) {
+      alert('O ano de nascimento não pode ser maior que o ano atual.');
+      this.value = '';
+      this.focus();
+      return;
+    }
+
+    // Validação extra: impede dia/mês inválidos digitados manualmente
+    const parts = value.split('-');
+    if (parts.length === 3) {
+      const [year, month, day] = parts.map(Number);
+      const validDate = new Date(year, month - 1, day);
+      if (
+        validDate.getFullYear() !== year ||
+        validDate.getMonth() + 1 !== month ||
+        validDate.getDate() !== day
+      ) {
+        alert('A data de nascimento informada é inválida.');
+        this.value = '';
+        this.focus();
+      }
+    }
+  });
+</script>
+
   <p class="muted">Endpoints: 
     <code>/health</code> • 
     <code>/db-check</code> • 

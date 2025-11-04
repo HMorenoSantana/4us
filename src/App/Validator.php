@@ -33,7 +33,7 @@ final class Validator
         $birthYear = (int) date('Y', $timestamp);
         $currentYear = (int) date('Y');
 
-        // ✅ Impede ano futuro
+        //Impede ano futuro
         if ($birthYear > $currentYear) {
           $errors[] = 'O ano de nascimento não pode ser maior que o ano atual.';
         }
