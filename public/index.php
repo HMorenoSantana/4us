@@ -30,7 +30,7 @@ if ($method === 'GET' && $path === '/db-check') {
   }
 }
 
-if ($method === 'POST' && $path === '/patients') {
+/*if ($method === 'POST' && $path === '/patients') {
   $name = trim($_POST['name'] ?? '');
   $birth = trim($_POST['birth_date'] ?? '');
   $phone = trim($_POST['phone'] ?? '');
@@ -59,9 +59,9 @@ if ($method === 'POST' && $path === '/patients') {
     exit;
   }
 }
+*/
 
-
-/*if ($method === 'POST' && $path === '/patients') {
+if ($method === 'POST' && $path === '/patients') {
   $dados = [
       'name'       => $_POST['name'] ?? '',
       'birth_date' => $_POST['birth_date'] ?? '',
@@ -70,7 +70,7 @@ if ($method === 'POST' && $path === '/patients') {
       'email'      => $_POST['email'] ?? '',
   ];
 
-  //Usa o validador centralizado
+  // ✅ Usa o validador centralizado
   $err = Validator::validarPaciente($dados);
 
   if ($err) {
@@ -102,7 +102,7 @@ if ($method === 'POST' && $path === '/patients') {
       );
       exit;
   }
-}*/
+}
 
 
 
