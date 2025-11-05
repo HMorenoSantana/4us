@@ -3,6 +3,7 @@ declare(strict_types=1);
 require __DIR__ . '/../vendor/autoload.php';
 use App\Health;
 use App\Db;
+use App\Validator;
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 function h(string $s): string
@@ -28,7 +29,8 @@ if ($method === 'GET' && $path === '/db-check') {
     json_out(['db' => 'error', 'message' => $e->getMessage()], 500);
   }
 }
-if ($method === 'POST' && $path === '/patients') {
+
+/*if ($method === 'POST' && $path === '/patients') {
   $name = trim($_POST['name'] ?? '');
   $birth = trim($_POST['birth_date'] ?? '');
   $phone = trim($_POST['phone'] ?? '');
@@ -57,6 +59,53 @@ if ($method === 'POST' && $path === '/patients') {
     exit;
   }
 }
+*/
+
+if ($method === 'POST' && $path === '/patients') {
+  $dados = [
+      'name'       => $_POST['name'] ?? '',
+      'birth_date' => $_POST['birth_date'] ?? '',
+      'phone'      => $_POST['phone'] ?? '',
+      'cellphone'  => $_POST['cellphone'] ?? '',
+      'email'      => $_POST['email'] ?? '',
+  ];
+
+  // ✅ Usa o validador centralizado
+  $err = Validator::validarPaciente($dados);
+
+  if ($err) {
+      $msg = '<div class="alert error"><strong>Erro:</strong><ul><li>'
+           . implode('</li><li>', array_map('h', $err))
+           . '</li></ul></div>';
+      echo page_form($msg, $dados);
+      exit;
+  }
+
+  try {
+      $pdo = Db::conn();
+      $st = $pdo->prepare('INSERT INTO patients (name, birth_date, phone, cellphone, email)
+                           VALUES (:n, :b, :p, :c, :e)');
+      $st->execute([
+          ':n' => $dados['name'] ?: null,
+          ':b' => $dados['birth_date'] ?: null,
+          ':p' => $dados['phone'] ?: null,
+          ':c' => $dados['cellphone'] ?: null,
+          ':e' => $dados['email'] ?: null
+      ]);
+
+      echo page_form('<div class="alert success">Paciente cadastrado com sucesso.</div>');
+      exit;
+  } catch (Throwable $e) {
+      echo page_form(
+          '<div class="alert error"><strong>Erro ao salvar:</strong> ' . h($e->getMessage()) . '</div>',
+          $dados
+      );
+      exit;
+  }
+}
+
+
+
 if ($method === 'GET' && $path === '/') {
   echo page_form();
   exit;
