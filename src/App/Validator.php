@@ -19,14 +19,14 @@ final class Validator
         $cell = trim($data['cellphone'] ?? '');
         $email = trim($data['email'] ?? '');
 
-        // ✅ Nome: apenas letras e espaços, mínimo de 3 caracteres
+        //Nome: apenas letras e espaços, mínimo de 3 caracteres
         if ($name === '' || mb_strlen($name) < 3) {
             $errors[] = 'O nome deve ter ao menos 3 caracteres.';
         } elseif (!preg_match('/^[\p{L}\s]+$/u', $name)) {
             $errors[] = 'O nome deve conter apenas letras e espaços.';
         }
 
-        // ✅ Telefone fixo: se informado, deve conter exatamente 10 dígitos
+        //Telefone fixo: se informado, deve conter exatamente 10 dígitos
         if ($phone !== '') {
             $phoneDigits = preg_replace('/\D/', '', $phone);
             if (!preg_match('/^\d{10}$/', $phoneDigits)) {
@@ -34,7 +34,7 @@ final class Validator
             }
         }
 
-        // ✅ Celular: se informado, deve conter exatamente 11 dígitos
+        //Celular: se informado, deve conter exatamente 11 dígitos
         if ($cell !== '') {
             $cellDigits = preg_replace('/\D/', '', $cell);
             if (!preg_match('/^\d{11}$/', $cellDigits)) {
@@ -42,7 +42,7 @@ final class Validator
             }
         }
 
-        // ✅ Data de nascimento: formato válido, data real e anterior à de hoje
+        //Data de nascimento: formato válido, data real e anterior à de hoje
         if ($birth !== '') {
             if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $birth)) {
                 $errors[] = 'A data deve estar no formato YYYY-MM-DD.';
@@ -60,7 +60,7 @@ final class Validator
             }
         }
 
-        // ✅ E-mail (opcional, mas deve ser válido se informado)
+        //E-mail (opcional, mas deve ser válido se informado)
         if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errors[] = 'O e-mail informado é inválido.';
         }
