@@ -187,30 +187,29 @@ function page_form(string $flash = '', array $old = []): string
       </p>
     </form>
 
-    <script>
-  // Impede letras no telefone e celular
+  <script>
+  //Impede letras no telefone e celular (permite apenas números)
   document.querySelectorAll('#phone, #cellphone').forEach(function (input) {
     input.addEventListener('input', function () {
-      this.value = this.value.replace(/[^0-9()\-\s]/g, '');
+      //Remove tudo que não for número
+      this.value = this.value.replace(/\D/g, '');
     });
   });
 
-  // Impede data de nascimento maior que hoje
+  //Impede data de nascimento maior que hoje
   const birthInput = document.getElementById('birth_date');
   const today = new Date().toISOString().split('T')[0];
   birthInput.setAttribute('max', today);
 
-  // Validação adicional: impede ano futuro
+  //Validação adicional: impede ano futuro e data inválida
   birthInput.addEventListener('change', function () {
     const value = this.value;
-
     if (!value) return;
 
     const selectedDate = new Date(value);
     const selectedYear = selectedDate.getFullYear();
     const currentYear = new Date().getFullYear();
 
-    // Se o ano for maior que o atual (mostra erro e limpa o campo)
     if (selectedYear > currentYear) {
       alert('O ano de nascimento não pode ser maior que o ano atual.');
       this.value = '';
@@ -218,7 +217,6 @@ function page_form(string $flash = '', array $old = []): string
       return;
     }
 
-    // Validação extra: impede dia/mês inválidos digitados manualmente
     const parts = value.split('-');
     if (parts.length === 3) {
       const [year, month, day] = parts.map(Number);
@@ -234,6 +232,32 @@ function page_form(string $flash = '', array $old = []): string
       }
     }
   });
+
+  //Validação no envio do formulário
+  document.querySelector('form').addEventListener('submit', function (e) {
+    const phone = document.getElementById('phone').value.replace(/\D/g, '');
+    const cell = document.getElementById('cellphone').value.replace(/\D/g, '');
+
+    //Telefone fixo deve ter 10 dígitos se informado
+    if (phone && phone.length !== 10) {
+      alert('O telefone fixo deve conter exatamente 10 dígitos numéricos.');
+      e.preventDefault();
+      document.getElementById('phone').focus();
+      return false;
+    }
+
+    //Celular deve ter 11 dígitos se informado
+    if (cell && cell.length !== 11) {
+      alert('O celular deve conter exatamente 11 dígitos numéricos.');
+      e.preventDefault();
+      document.getElementById('cellphone').focus();
+      return false;
+    }
+
+    return true;
+  });
+</script>
+
 </script>
 
   <p class="muted">Endpoints: 
