@@ -5,56 +5,66 @@ namespace App;
 
 final class Validator
 {
-  /**
-   * Valida dados do paciente.
-   * Retorna um array com mensagens de erro (vazio se estiver tudo certo)
-   */
-  public static function validarPaciente(array $data): array
-  {
-    $errors = [];
+    /**
+     * Valida dados de um paciente.
+     * Retorna um array com mensagens de erro (vazio se estiver tudo certo)
+     */
+    public static function validarPaciente(array $data): array
+    {
+        $errors = [];
 
-    // Nome obrigatório
-    if (empty(trim($data['name'] ?? ''))) {
-      $errors[] = 'O nome é obrigatório.';
-    }
+        $name = trim($data['name'] ?? '');
+        $birth = trim($data['birth_date'] ?? '');
+        $phone = trim($data['phone'] ?? '');
+        $cell = trim($data['cellphone'] ?? '');
+        $email = trim($data['email'] ?? '');
 
-    // ===== Validação da data de nascimento =====
-    $birthDate = $data['birth_date'] ?? '';
-
-    if (empty($birthDate)) {
-      $errors[] = 'A data de nascimento é obrigatória.';
-    } else {
-      // Converte a data para timestamp
-      $timestamp = strtotime($birthDate);
-
-      if ($timestamp === false) {
-        $errors[] = 'A data de nascimento é inválida.';
-      } else {
-        $birthYear = (int) date('Y', $timestamp);
-        $currentYear = (int) date('Y');
-
-        //Impede ano futuro
-        if ($birthYear > $currentYear) {
-          $errors[] = 'O ano de nascimento não pode ser maior que o ano atual.';
+        // ✅ Nome: apenas letras e espaços, mínimo de 3 caracteres
+        if ($name === '' || mb_strlen($name) < 3) {
+            $errors[] = 'O nome deve ter ao menos 3 caracteres.';
+        } elseif (!preg_match('/^[\p{L}\s]+$/u', $name)) {
+            $errors[] = 'O nome deve conter apenas letras e espaços.';
         }
-      }
-    }
 
-    // ===== Validação de telefone =====
-    if (!empty($data['phone']) && !preg_match('/^[0-9()\-\s]+$/', $data['phone'])) {
-      $errors[] = 'O telefone contém caracteres inválidos.';
-    }
+        // ✅ Telefone fixo: se informado, deve conter exatamente 10 dígitos
+        if ($phone !== '') {
+            $phoneDigits = preg_replace('/\D/', '', $phone);
+            if (!preg_match('/^\d{10}$/', $phoneDigits)) {
+                $errors[] = 'O telefone fixo deve conter exatamente 10 dígitos numéricos.';
+            }
+        }
 
-    // ===== Validação de celular =====
-    if (!empty($data['cellphone']) && !preg_match('/^[0-9()\-\s]+$/', $data['cellphone'])) {
-      $errors[] = 'O celular contém caracteres inválidos.';
-    }
+        // ✅ Celular: se informado, deve conter exatamente 11 dígitos
+        if ($cell !== '') {
+            $cellDigits = preg_replace('/\D/', '', $cell);
+            if (!preg_match('/^\d{11}$/', $cellDigits)) {
+                $errors[] = 'O celular deve conter exatamente 11 dígitos numéricos.';
+            }
+        }
 
-    // ===== Validação de e-mail =====
-    if (!empty($data['email']) && !filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-      $errors[] = 'O e-mail informado é inválido.';
-    }
+        // ✅ Data de nascimento: formato válido, data real e anterior à de hoje
+        if ($birth !== '') {
+            if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $birth)) {
+                $errors[] = 'A data deve estar no formato YYYY-MM-DD.';
+            } else {
+                [$year, $month, $day] = array_map('intval', explode('-', $birth));
+                if (!checkdate($month, $day, $year)) {
+                    $errors[] = 'A data de nascimento informada é inválida.';
+                } else {
+                    $birthTs = strtotime($birth);
+                    $today = strtotime(date('Y-m-d'));
+                    if ($birthTs === false || $birthTs >= $today) {
+                        $errors[] = 'A data de nascimento deve ser anterior à data de hoje.';
+                    }
+                }
+            }
+        }
 
-    return $errors;
-  }
+        // ✅ E-mail (opcional, mas deve ser válido se informado)
+        if ($email !== '' && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'O e-mail informado é inválido.';
+        }
+
+        return $errors;
+    }
 }

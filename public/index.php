@@ -80,7 +80,7 @@ function page_form(string $flash = '', array $old = []): string
     <title>
       Cadastro de Pacientes
     </title>
-<style>
+  <style>
     body{
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
       margin:2rem
@@ -210,7 +210,7 @@ function page_form(string $flash = '', array $old = []): string
     const selectedYear = selectedDate.getFullYear();
     const currentYear = new Date().getFullYear();
 
-    // Se o ano for maior que o atual → mostra erro e limpa o campo
+    // Se o ano for maior que o atual (mostra erro e limpa o campo)
     if (selectedYear > currentYear) {
       alert('O ano de nascimento não pode ser maior que o ano atual.');
       this.value = '';
