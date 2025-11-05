@@ -3,7 +3,7 @@ declare(strict_types=1);
 require __DIR__ . '/../vendor/autoload.php';
 use App\Health;
 use App\Db;
-use App\Validator;
+
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 function h(string $s): string
@@ -30,7 +30,7 @@ if ($method === 'GET' && $path === '/db-check') {
   }
 }
 
-/*if ($method === 'POST' && $path === '/patients') {
+if ($method === 'POST' && $path === '/patients') {
   $name = trim($_POST['name'] ?? '');
   $birth = trim($_POST['birth_date'] ?? '');
   $phone = trim($_POST['phone'] ?? '');
@@ -59,9 +59,9 @@ if ($method === 'GET' && $path === '/db-check') {
     exit;
   }
 }
-*/
 
-if ($method === 'POST' && $path === '/patients') {
+
+/*if ($method === 'POST' && $path === '/patients') {
   $dados = [
       'name'       => $_POST['name'] ?? '',
       'birth_date' => $_POST['birth_date'] ?? '',
@@ -102,7 +102,7 @@ if ($method === 'POST' && $path === '/patients') {
       );
       exit;
   }
-}
+}*/
 
 
 
