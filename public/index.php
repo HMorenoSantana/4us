@@ -257,9 +257,6 @@ function page_form(string $flash = '', array $old = []): string
     return true;
   });
 </script>
-
-</script>
-
   <p class="muted">Endpoints: 
     <code>/health</code> • 
     <code>/db-check</code> • 
