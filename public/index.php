@@ -70,7 +70,7 @@ if ($method === 'POST' && $path === '/patients') {
       'email'      => $_POST['email'] ?? '',
   ];
 
-  // ✅ Usa o validador centralizado
+  //Usa o validador centralizado
   $err = Validator::validarPaciente($dados);
 
   if ($err) {
