@@ -134,7 +134,7 @@ function page_form(string $flash = '', array $old = []): string
 
       body{
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-        margin:2rem
+        margin:2rem;
       }
       .container{
           max-width:640px;
@@ -142,26 +142,30 @@ function page_form(string $flash = '', array $old = []): string
           background-color: #D2691E;
       }
       h1{
-          margin-bottom:.5rem
-          color: #ffffff;
+          margin-bottom:.5rem;
+          font- color: #ffffff;
+          font-weight: bold;
       }
       p.desc{
-          color:#555;
-          margin-top:0
+          color:#000;
+          margin-top:0;
+          font-weight: bold;
       }
       form{
           display:grid;
           gap:12px;
-          margin-top:16px
+          margin-top:16px;
       }
       label{
-            font-weight:600
+            font-weight:600;
+            font-weight: bold;
+            color: #fff;
       }
       input[type=text],
       input[type=date],
       input[type=email],
       input[type=tel]
-          {width:100%;
+          {width:70%;
           padding:10px;
           border:1px solid #ddd;
           border-radius:8px
@@ -175,7 +179,7 @@ function page_form(string $flash = '', array $old = []): string
           }
       button.primary
           {
-          background:#0d6efd;
+          background:#8B4513;
           color:#fff
           }
       .alert
@@ -188,7 +192,7 @@ function page_form(string $flash = '', array $old = []): string
           {
           background:#e6f4ea;
           color:#1e7e34;
-          border:1px solid #b7e1c1
+          border:1px solid #b7e1c1;
           }
       .alert.error
           {
@@ -198,18 +202,18 @@ function page_form(string $flash = '', array $old = []): string
           }
       small.hint
           {
-          color:#666
+          color:#fff;
           }
       .muted
           {
-          color:#666;
-          font-size:14px
+          color:#fff;
+          font-size:14px;
           }
       .row
           {
           display:grid;
           gap:12px;
-          grid-template-columns:1fr 1fr
+          grid-template-columns:1fr 1fr;
           }
         
       </style>
