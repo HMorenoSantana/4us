@@ -135,11 +135,11 @@ function page_form(string $flash = '', array $old = []): string
       body{
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
         margin:2rem
-        color: yellow;
       }
       .container{
           max-width:640px;
-          margin:0 auto
+          margin:0 auto;
+          background-color: #00FFFF;
       }
       h1{
           margin-bottom:.5rem
