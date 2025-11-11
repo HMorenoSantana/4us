@@ -20,13 +20,14 @@ function json_out($data, int $code = 200): void
 if ($method === 'GET' && $path === '/health') {
   json_out(Health::status() + ['ts' => gmdate('c')]);
 }
-if ($method === 'GET' && $path === '/db-check') {
+if ($method === 'GET' && $path === '/Db-check') {
   try {
     $pdo = Db::conn();
     $one = $pdo->query('SELECT 1 AS ok')->fetch();
-    json_out(['db' => 'ok', 'result' => $one]);
+    json_out(['Db' => 'ok', 'result' => $one]);
   } catch (Throwable $e) {
-    json_out(['db' => 'error', 'message' => $e->getMessage()], 500);
+    json_out(['Db' => 'error', 'message' => $e->getMessage()], 500);
+
   }
 }
 
@@ -70,7 +71,7 @@ if ($method === 'POST' && $path === '/patients') {
       'email'      => $_POST['email'] ?? '',
   ];
 
-  // ✅ Usa o validador centralizado
+  //  Usa o validador centralizado
   $err = Validator::validarPaciente($dados);
 
   if ($err) {
@@ -130,75 +131,86 @@ function page_form(string $flash = '', array $old = []): string
       Cadastro de Pacientes
     </title>
   <style>
-    body{
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      margin:2rem
+
+      body{
+        font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+        margin:2rem
+        color: yellow;
       }
       .container{
-        max-width:640px;
-        margin:0 auto
-        }
+          max-width:640px;
+          margin:0 auto
+      }
       h1{
-        margin-bottom:.5rem
-        }
+          margin-bottom:.5rem
+      }
       p.desc{
-        color:#555;
-        margin-top:0
+          color:#555;
+          margin-top:0
       }
       form{
-        display:grid;
-        gap:12px;
-        margin-top:16px
-        }
-        label{
-          font-weight:600
-          }
-          input[type=text],
-          input[type=date],
-          input[type=email],
-          input[type=tel]
+          display:grid;
+          gap:12px;
+          margin-top:16px
+      }
+      label{
+            font-weight:600
+      }
+      input[type=text],
+      input[type=date],
+      input[type=email],
+      input[type=tel]
           {width:100%;
           padding:10px;
           border:1px solid #ddd;
           border-radius:8px
           }
-        button{
+      button
+          {
           padding:12px 16px;
           border:0;
           border-radius:8px;
           cursor:pointer
           }
-        button.primary{
+      button.primary
+          {
           background:#0d6efd;
           color:#fff
           }
-          .alert{
-            padding:12px 14px;
-            border-radius:8px;
-            margin:8px 0 4px
-            }
-          .alert.success{
-            background:#e6f4ea;
-            color:#1e7e34;
-            border:1px solid #b7e1c1
+      .alert
+          {
+          padding:12px 14px;
+          border-radius:8px;
+          margin:8px 0 4px
           }
-          .alert.error{
-            background:#fdecea;
-            color:#a11;
-            border:1px solid #f5c2c7
+      .alert.success
+          {
+          background:#e6f4ea;
+          color:#1e7e34;
+          border:1px solid #b7e1c1
           }
-          small.hint{
-            color:#666
+      .alert.error
+          {
+          background:#fdecea;
+          color:#a11;
+          border:1px solid #f5c2c7
           }
-          .muted{
-            color:#666;
-            font-size:14px
+      small.hint
+          {
+          color:#666
           }
-          .row{
-            display:grid;
-            gap:12px;
-            grid-template-columns:1fr 1fr
+      .muted
+          {
+          color:#666;
+          font-size:14px
           }
+      .row
+          {
+          display:grid;
+          gap:12px;
+          grid-template-columns:1fr 1fr
+          }
+        
       </style>
     </head>
 <body>
@@ -308,7 +320,7 @@ function page_form(string $flash = '', array $old = []): string
 </script>
   <p class="muted">Endpoints: 
     <code>/health</code> • 
-    <code>/db-check</code> • 
+    <code>/Db-check</code> • 
     <code>POST /patients</code>
   </p>
 </div>
