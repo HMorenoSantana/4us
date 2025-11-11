@@ -139,7 +139,7 @@ function page_form(string $flash = '', array $old = []): string
       .container{
           max-width:640px;
           margin:0 auto;
-          background-color: #00FFFF;
+          background-color: #000000;
       }
       h1{
           margin-bottom:.5rem
