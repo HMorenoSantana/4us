@@ -136,87 +136,87 @@ function page_form(string $flash = '', array $old = []): string
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
         margin:2rem;
       }
-      .container{
-          max-width:640px;
-          margin:0 auto;
-          background-color: #D2691E;
-      }
-      h1{
-          margin-bottom:.5rem;
-          color: #ffffff;
-          font-weight: bold;
-      }
-      p.desc{
-          color:#000;
-          margin-top:0;
-          font-weight: bold;
-      }
-      form{
-          display:grid;
-          gap:12px;
-          margin-top:16px;
-      }
-      label{
-            font-weight:600;
+        .container{
+            max-width:640px;
+            margin:0 auto;
+            background-color: #D2691E;
+        }
+        h1{
+            margin-bottom:.5rem;
+            color: #ffffff;
             font-weight: bold;
-            color: #fff;
-      }
-      input[type=text],
-      input[type=date],
-      input[type=email],
-      input[type=tel]
-          {width:80%;
-          padding:15px;
-          border:1px solid #ddd;
-          border-radius:8px
-          }
-      button
-          {
-          padding:12px 16px;
-          border:0;
-          border-radius:8px;
-          cursor:pointer;
-          font-weight: bold;
-          }
-      button.primary
-          {
-          background:#8B4513;
-          color:#fff;
-          font-weight: bold;
-          }
-      .alert
-          {
-          padding:12px 14px;
-          border-radius:8px;
-          margin:8px 0 4px;
-          }
-      .alert.success
-          {
-          background:#e6f4ea;
-          color:#1e7e34;
-          border:1px solid #b7e1c1;
-          }
-      .alert.error
-          {
-          background:#fdecea;
-          color:#a11;
-          border:1px solid #f5c2c7
-          }
-      small.hint
-          {
-          color:#fff;
-          }
-      .muted
-          {
-          color:#fff;
-          font-size:14px;
-          }
-      .row
-          {
-          display:grid;
-          gap:12px;
-          grid-template-columns:1fr 1fr;
-          }
+        }
+        p.desc{
+            color:#000;
+            margin-top:0;
+            font-weight: bold;
+        }
+        form{
+            display:grid;
+            gap:12px;
+            margin-top:16px;
+        }
+              label{
+                    font-weight:600;
+                    font-weight: bold;
+                    color: #fff;
+              }
+              input[type=text],
+              input[type=date],
+              input[type=email],
+              input[type=tel]
+                  {width:80%;
+                  padding:15px;
+                  border:1px solid #ddd;
+                  border-radius:8px
+                  }
+        button
+            {
+            padding:12px 16px;
+            border:0;
+            border-radius:8px;
+            cursor:pointer;
+            font-weight: bold;
+            }
+            button.primary
+                {
+                background:#8B4513;
+                color:#fff;
+                font-weight: bold;
+                }
+        .alert
+            {
+            padding:12px 14px;
+            border-radius:8px;
+            margin:8px 0 4px;
+            }
+            .alert.success
+                {
+                background:#e6f4ea;
+                color:#1e7e34;
+                border:1px solid #b7e1c1;
+                }
+            .alert.error
+                {
+                background:#fdecea;
+                color:#a11;
+                border:1px solid #f5c2c7
+                }
+        small.hint
+            {
+            color:#fff;
+            }
+        .muted
+            {
+            color:#fff;
+            font-size:14px;
+            }
+        .row
+            {
+            display:grid;
+            gap:12px;
+            grid-template-columns:1fr 1fr;
+            }
         
       </style>
     </head>
