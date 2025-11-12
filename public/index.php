@@ -165,8 +165,8 @@ function page_form(string $flash = '', array $old = []): string
       input[type=date],
       input[type=email],
       input[type=tel]
-          {width:70%;
-          padding:10px;
+          {width:50%;
+          padding:15px;
           border:1px solid #ddd;
           border-radius:8px
           }
@@ -175,18 +175,20 @@ function page_form(string $flash = '', array $old = []): string
           padding:12px 16px;
           border:0;
           border-radius:8px;
-          cursor:pointer
+          cursor:pointer;
+          font-weight: bold;
           }
       button.primary
           {
           background:#8B4513;
-          color:#fff
+          color:#fff;
+          font-weight: bold;
           }
       .alert
           {
           padding:12px 14px;
           border-radius:8px;
-          margin:8px 0 4px
+          margin:8px 0 4px;
           }
       .alert.success
           {
@@ -225,20 +227,20 @@ function page_form(string $flash = '', array $old = []): string
         <form method="post" action="/patients" novalidate>
         <div>
           <label for="name">Nome completo *</label>
-          <input type="text" id="name" name="name" value="{$name}" required>
+          <input type="text" id="name" name="name" value="{$name}" placeholder="Nome Completo" required>
         </div>
         <div>
           <label for="birth_date">Data de nascimento</label>
-          <input type="date" id="birth_date" name="birth_date" value="{$birth}" placeholder="YYYY-MM-DD">
+          <input type="date" id="birth_date" name="birth_date" value="{$birth}" placeholder="DD-MM-YYYY">
         </div>
         <div class="row">
           <div>
             <label for="phone">Telefone (fixo)</label>
-            <input type="tel" id="phone" name="phone" value="{$phone}">
+            <input type="tel" id="phone" name="phone" placeholder="7070-7070" value="{$phone}">
         </div>
         <div>
           <label for="cellphone">Celular</label>
-          <input type="tel" id="cellphone" name="cellphone" value="{$cell}">
+          <input type="tel" id="cellphone" name="cellphone" placeholder="+55 11 97070-7070" value="{$cell}">
         </div>
       </div>
       <div>
