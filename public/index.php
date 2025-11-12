@@ -143,7 +143,7 @@ function page_form(string $flash = '', array $old = []): string
       }
       h1{
           margin-bottom:.5rem;
-          font- color: #ffffff;
+          color: #ffffff;
           font-weight: bold;
       }
       p.desc{
