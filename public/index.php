@@ -165,7 +165,7 @@ function page_form(string $flash = '', array $old = []): string
       input[type=date],
       input[type=email],
       input[type=tel]
-          {width:50%;
+          {width:80%;
           padding:15px;
           border:1px solid #ddd;
           border-radius:8px
