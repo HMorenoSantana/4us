@@ -61,7 +61,6 @@ if ($method === 'POST' && $path === '/patients') {
   }
 }
 
-
 /*if ($method === 'POST' && $path === '/patients') {
   $dados = [
       'name'       => $_POST['name'] ?? '',
@@ -105,8 +104,6 @@ if ($method === 'POST' && $path === '/patients') {
   }
 }*/
 
-
-
 if ($method === 'GET' && $path === '/') {
   echo page_form();
   exit;
@@ -130,6 +127,11 @@ function page_form(string $flash = '', array $old = []): string
     <title>
       Cadastro de Pacientes
     </title>
+
+<!-- =========================== -->
+<!-- ==== ALTERAÇÕES DO CSS ==== -->
+<!-- =========================== -->
+
   <style>
 
       body{
@@ -219,6 +221,11 @@ function page_form(string $flash = '', array $old = []): string
             }
         
       </style>
+
+<!-- =================================== -->
+<!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
+<!-- =================================== -->
+
     </head>
 <body>
       <div class="container">
