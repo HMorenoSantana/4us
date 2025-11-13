@@ -11,7 +11,7 @@ Stack: GitHub Actions + Render + Neon
 
 ## DADOS
 
-Cadastro > https://fourus-fh7s.onrender.com/patients
+Cadastro > https://fourus-fh7s.onrender.com
 Banco de dados > https://fourus-fh7s.onrender.com/admin/login.php
  
 Projeto Thiago: 
