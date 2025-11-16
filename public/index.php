@@ -139,9 +139,11 @@ function page_form(string $flash = '', array $old = []): string
         margin:2rem;
       }
         .container{
-            max-width:640px;
-            margin:0 auto;
-            background-color: #D2691E;
+          max-width: 640px;
+          margin: 0 auto;
+          padding: 20px;
+          border-radius: 50px;
+          background-color: #151633;
         }
         h1{
             margin-bottom:.5rem;
@@ -180,12 +182,13 @@ function page_form(string $flash = '', array $old = []): string
             cursor:pointer;
             font-weight: bold;
             }
+            
             button.primary
-                {
-                background:#8B4513;
-                color:#fff;
-                font-weight: bold;
-                }
+            {
+              background-color: #e4e4e950;
+              font-weight: bold;
+            }
+
         .alert
             {
             padding:12px 14px;
