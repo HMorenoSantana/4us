@@ -226,11 +226,14 @@ function page_form(string $flash = '', array $old = []): string
         
       </style>
 
+  </head>
+
 <!-- =================================== -->
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
-
-    </head>
+          <header>
+            <img src="assets/img/logo.ub.png" alt="Logo Universidade Brasil" title="Universidade Brasil">
+          </header>
 <body>
       <div class="container">
         <h1>Cadastro de Pacientes</h1>
