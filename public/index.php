@@ -143,7 +143,10 @@ function page_form(string $flash = '', array $old = []): string
 
       header {
         background: black;
+        margin-bottom: 2rem;
+
         img {
+          text-align: center;
           width: 350px;
           height: auto;
         }
