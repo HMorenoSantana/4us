@@ -136,8 +136,17 @@ function page_form(string $flash = '', array $old = []): string
 
       body{
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-        background-color: black;
+        background: #020024;
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 4%, rgba(9, 9, 121, 1) 32%, rgba(0, 0, 0, 1) 100%);
         margin:2rem;
+      }
+
+      header {
+        background: black;
+        img {
+          width: 350px;
+          height: auto;
+        }
       }
         .container{
           max-width: 640px;
