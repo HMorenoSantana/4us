@@ -136,6 +136,7 @@ function page_form(string $flash = '', array $old = []): string
 
       body{
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+        background-color: black;
         margin:2rem;
       }
         .container{
