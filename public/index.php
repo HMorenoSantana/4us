@@ -246,7 +246,7 @@ function page_form(string $flash = '', array $old = []): string
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
           <header>
-            <img src="assets/img/logo.ub.png" alt="Logo Universidade Brasil" title="Universidade Brasil">
+            <img src="public/assets/img/logo_ub.png" alt="Logo Universidade Brasil" title="Universidade Brasil">
           </header>
 <body>
       <div class="container">
