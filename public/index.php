@@ -148,12 +148,11 @@ function page_form(string $flash = '', array $old = []): string
       header {
         display: flex;
         justify-content: center;
-        margin: 30px
+        margin: 50px;
 
         img {
-          width: 100px;
-          height: 100px;
-          margin: 30%;
+         height: 200px;
+         width: 80%;
         }
       }
         .container{
