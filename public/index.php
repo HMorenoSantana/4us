@@ -153,7 +153,7 @@ function page_form(string $flash = '', array $old = []): string
         img {
           height: auto;
           width: 400px;
-          box-shadow: 15px 15px 15px #000000;
+          filter: drop-shadow(3px 6px 7px rgba(0, 0, 0, 2));
         }
       }
         .container{
