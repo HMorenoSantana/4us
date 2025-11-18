@@ -141,7 +141,10 @@ function page_form(string $flash = '', array $old = []): string
       body{
         font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
         background: #020024;
+        background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(2, 1, 23, 1) 100%);
+        /*background: #020024;
         background: linear-gradient(90deg, rgba(2, 0, 36, 1) 4%, rgba(9, 9, 121, 1) 32%, rgba(0, 0, 0, 1) 100%);
+        */
         margin:2rem;
       }
 
@@ -252,7 +255,7 @@ function page_form(string $flash = '', array $old = []): string
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
 <header>
-    <img src="../public/assets/img/logo_ub.png" alt="Logo Universidade Brasil">
+    <img src="public/assets/img/logo_ub.png" alt="Logo Universidade Brasil">
 </header>
 
 <body>
