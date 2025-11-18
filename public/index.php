@@ -151,8 +151,9 @@ function page_form(string $flash = '', array $old = []): string
         margin: 50px;
 
         img {
-         height: 200px;
-         width: 80%;
+          height: auto;
+          width: 400px;
+          box-shadow: 15px 15px 15px #000000;
         }
       }
         .container{
