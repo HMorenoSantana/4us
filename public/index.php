@@ -157,7 +157,7 @@ function page_form(string $flash = '', array $old = []): string
           margin: 0 auto;
           padding: 20px;
           border-radius: 50px;
-          background-color: #15163350;
+          background-color: #cbcce050;
         }
         h1{
             margin-bottom:.5rem;
