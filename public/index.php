@@ -143,7 +143,6 @@ function page_form(string $flash = '', array $old = []): string
 
       header {
         display: flex;
-        background: black;
         justify-content: center;
         margin-bottom: 5px;
 
@@ -245,9 +244,10 @@ function page_form(string $flash = '', array $old = []): string
 <!-- =================================== -->
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
-          <header>
-            <img src="public/assets/img/logo_ub.png" alt="Logo Universidade Brasil" title="Universidade Brasil">
-          </header>
+<header>
+    <img src="assets/img/logo_ub.png" alt="Logo Universidade Brasil" title="Universidade Brasil">
+</header>
+
 <body>
       <div class="container">
         <h1>Cadastro de Pacientes</h1>
