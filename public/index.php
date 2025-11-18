@@ -144,10 +144,9 @@ function page_form(string $flash = '', array $old = []): string
       header {
         display: flex;
         justify-content: center;
+        margin: 30px
 
         img {
-          text-align: center;
-          margin-bottom: 10px;
           width: 350px;
           height: auto;
         }
@@ -158,7 +157,7 @@ function page_form(string $flash = '', array $old = []): string
           padding: 20px;
           border-radius: 50px;
           background-color: #00000087;
-          box-shadow: 0 10px 15px rgba(255, 255, 255, 0.5);
+          box-shadow: 0 10px 50px rgba(255, 255, 255, 0.5);
         }
         h1{
             margin-bottom:.5rem;
@@ -166,7 +165,7 @@ function page_form(string $flash = '', array $old = []): string
             font-weight: bold;
         }
         p.desc{
-            color:#000;
+            color: #fcfcfc66;
             margin-top:0;
             font-weight: bold;
         }
@@ -246,7 +245,7 @@ function page_form(string $flash = '', array $old = []): string
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
 <header>
-    <img src="assets/img/logo_ub.png" alt="Logo Universidade Brasil" title="Universidade Brasil">
+    <img src="img/logo_ub.png" alt="Logo Universidade Brasil" title="Universidade Brasil">
 </header>
 
 <body>
