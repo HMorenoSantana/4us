@@ -118,7 +118,11 @@ function page_form(string $flash = '', array $old = []): string
   $phone = h($old['phone'] ?? '');
   $cell = h($old['cell'] ?? '');
   $email = h($old['email'] ?? '');
+
   return <<<HTML
+
+<!-- INCIO HTML -->
+
 <!doctype html>
 <html lang="pt-br">
   <head>
@@ -248,7 +252,7 @@ function page_form(string $flash = '', array $old = []): string
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
 <header>
-    <img src="/public/assets/img/logo_ub.png" alt="Logo Universidade Brasil">
+    <img src="public/assets/img/logo_ub.png" alt="Logo Universidade Brasil">
 </header>
 
 <body>
