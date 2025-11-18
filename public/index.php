@@ -163,8 +163,8 @@ function page_form(string $flash = '', array $old = []): string
           margin: 0 auto;
           padding: 20px;
           border-radius: 50px;
-          background-color: #00000087;
-          box-shadow: 0 10px 50px rgba(255, 255, 255, 0.5);
+          background-color: #000b25db;
+          box-shadow: 0 5px 35px rgb(255 216 2);
         }
         h1{
             margin-bottom:.5rem;
