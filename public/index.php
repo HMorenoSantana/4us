@@ -148,7 +148,7 @@ function page_form(string $flash = '', array $old = []): string
       header {
         display: flex;
         justify-content: center;
-        margin: 50px;
+        margin: 20px;
 
         /*
         height: 150px;
@@ -160,7 +160,7 @@ function page_form(string $flash = '', array $old = []): string
 
         img {
           height: auto;
-          width: 400px;
+          width: 130px;
           filter: drop-shadow(3px 6px 7px rgba(0, 0, 0, 2));
         }
       }
