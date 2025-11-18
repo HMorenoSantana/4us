@@ -255,7 +255,8 @@ function page_form(string $flash = '', array $old = []): string
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
 <header>
-    <img src="public/assets/img/logo_ub.png" alt="Logo Universidade Brasil">
+    <img src="assets/img/logo_ub.png" alt="Logo Universidade Brasil">
+          <!-- a index está dentro da pasta public, então não há necessidade de chama-lá aqui. -->
 </header>
 
 <body>
