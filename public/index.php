@@ -144,10 +144,10 @@ function page_form(string $flash = '', array $old = []): string
       header {
         display: flex;
         justify-content: center;
-        margin-bottom: 5px;
 
         img {
           text-align: center;
+          margin-bottom: 10px;
           width: 350px;
           height: auto;
         }
@@ -157,7 +157,8 @@ function page_form(string $flash = '', array $old = []): string
           margin: 0 auto;
           padding: 20px;
           border-radius: 50px;
-          background-color: #cbcce050;
+          background-color: #00000087;
+          box-shadow: 0 10px 15px rgba(255, 255, 255, 0.5);
         }
         h1{
             margin-bottom:.5rem;
