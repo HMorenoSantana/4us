@@ -150,6 +150,14 @@ function page_form(string $flash = '', array $old = []): string
         justify-content: center;
         margin: 50px;
 
+        /*
+        height: 150px;
+        padding: 30px;
+        border-radius: 30px;
+        background: #00000050;
+        box-shadow: 0 5px 35px #000000;
+        */
+
         img {
           height: auto;
           width: 400px;
@@ -252,7 +260,7 @@ function page_form(string $flash = '', array $old = []): string
 <!-- ==== FIM DAS ALTERAÇÕES DO CSS ==== -->
 <!-- =================================== -->
 <header>
-    <img src="assets/img/logo_ub.png" alt="Logo Universidade Brasil">
+    <img src="assets/img/logo_ub2.png" alt="Logo Universidade Brasil">
           <!-- a index está dentro da pasta public, então não há necessidade de chama-lá aqui. -->
 </header>
 
