@@ -195,16 +195,9 @@ function page_form(string $flash = '', array $old = []): string
             border-radius:8px;
             cursor:pointer;
             font-weight: bold;
-            }
-
-            button:hover{
             color: white;
             background: #00000090;
-            padding:12px 16px;
-            border:0;
-            border-radius:8px;
-            cursor:pointer;
-            font-weight: bold;
+
             }
             
             button.primary
